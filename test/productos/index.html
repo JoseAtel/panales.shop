@@ -1,0 +1,92 @@
+---
+layout: default
+title: Productos
+description: Catálogo completo de pañales para bebés y adultos
+---
+
+<section class="products-header">
+  <div class="container">
+    <h1>Catálogo de Productos</h1>
+    <div class="breadcrumbs">
+      <a href="{{ '/' | relative_url }}">Inicio</a> &gt; <span>Productos</span>
+    </div>
+  </div>
+</section>
+
+<section class="products-filters">
+  <div class="container">
+    <div class="filters-container">
+      <div class="filter-group">
+        <label for="category-filter">Categoría</label>
+        <select id="category-filter" class="filter-select">
+          <option value="all">Todas las categorías</option>
+          <option value="bebes">Pañales para Bebés</option>
+          <option value="adultos">Pañales para Adultos</option>
+          <option value="toallitas">Toallitas Húmedas</option>
+          <option value="accesorios">Accesorios</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label for="brand-filter">Marca</label>
+        <select id="brand-filter" class="filter-select">
+          <option value="all">Todas las marcas</option>
+          <option value="pampers">Pampers</option>
+          <option value="huggies">Huggies</option>
+          <option value="dodot">Dodot</option>
+          <option value="tena">Tena</option>
+          <option value="moltex">Moltex</option>
+          <option value="babysec">Babysec</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label for="price-filter">Precio</label>
+        <select id="price-filter" class="filter-select">
+          <option value="all">Todos los precios</option>
+          <option value="0-10">$0 - $10</option>
+          <option value="10-20">$10 - $20</option>
+          <option value="20-30">$20 - $30</option>
+          <option value="30+">$30+</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label for="sort-filter">Ordenar por</label>
+        <select id="sort-filter" class="filter-select">
+          <option value="relevance">Relevancia</option>
+          <option value="price-asc">Precio: menor a mayor</option>
+          <option value="price-desc">Precio: mayor a menor</option>
+          <option value="rating">Calificación</option>
+          <option value="newest">Más recientes</option>
+        </select>
+      </div>
+      
+      <button id="apply-filters" class="btn btn-primary">Aplicar filtros</button>
+    </div>
+  </div>
+</section>
+
+<section class="products-list">
+  <div class="container">
+    <div class="products-grid" id="productsGrid">
+      {% assign all_products = site.productos %}
+      {% for producto in all_products %}
+        {% include product-card.html producto=producto %}
+      {% endfor %}
+    </div>
+    
+    <div class="pagination">
+      <button class="pagination-btn prev" disabled>Anterior</button>
+      <div class="pagination-numbers">
+        <span class="pagination-number active">1</span>
+        <span class="pagination-number">2</span>
+        <span class="pagination-number">3</span>
+        <span class="pagination-dots">...</span>
+        <span class="pagination-number">10</span>
+      </div>
+      <button class="pagination-btn next">Siguiente</button>
+    </div>
+  </div>
+</section>
+

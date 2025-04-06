@@ -1,0 +1,177 @@
+---
+layout: default
+title: Inicio
+description: Tienda online de ventas de Pañales para niños y adultos. Ofertas de pañales.
+index: true
+---
+
+<section class="hero-banner">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Las mejores ofertas en pañales</h1>
+      <p>Encuentra los mejores precios en pañales para bebés y adultos</p>
+      <div class="hero-buttons">
+        <a href="{{ '/productos/bebes' | relative_url }}" class="btn btn-primary">Pañales para Bebés</a>
+        <a href="{{ '/productos/adultos' | relative_url }}" class="btn btn-secondary">Pañales para Adultos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="featured-categories">
+  <div class="container">
+    <h2 class="section-title">Categorías destacadas</h2>
+    <div class="categories-grid">
+      <a href="{{ '/productos/bebes/recien-nacidos' | relative_url }}" class="category-card">
+        <img src="{{ '/assets/images/categories/recien-nacidos.jpg' | relative_url }}" alt="Recién nacidos">
+        <h3>Recién nacidos</h3>
+      </a>
+      <a href="{{ '/productos/bebes/talla-1' | relative_url }}" class="category-card">
+        <img src="{{ '/assets/images/categories/talla-1.jpg' | relative_url }}" alt="Talla 1">
+        <h3>Talla 1</h3>
+      </a>
+      <a href="{{ '/productos/bebes/talla-2' | relative_url }}" class="category-card">
+        <img src="{{ '/assets/images/categories/talla-2.jpg' | relative_url }}" alt="Talla 2">
+        <h3>Talla 2</h3>
+      </a>
+      <a href="{{ '/productos/bebes/talla-3' | relative_url }}" class="category-card">
+        <img src="{{ '/assets/images/categories/talla-3.jpg' | relative_url }}" alt="Talla 3">
+        <h3>Talla 3</h3>
+      </a>
+      <a href="{{ '/productos/adultos/incontinencia-leve' | relative_url }}" class="category-card">
+        <img src="{{ '/assets/images/categories/incontinencia-leve.jpg' | relative_url }}" alt="Incontinencia leve">
+        <h3>Incontinencia leve</h3>
+      </a>
+      <a href="{{ '/productos/adultos/incontinencia-moderada' | relative_url }}" class="category-card">
+        <img src="{{ '/assets/images/categories/incontinencia-moderada.jpg' | relative_url }}" alt="Incontinencia moderada">
+        <h3>Incontinencia moderada</h3>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="featured-products">
+  <div class="container">
+    <h2 class="section-title">Productos destacados</h2>
+    <div class="products-grid">
+      {% assign featured_products = site.productos | where: "destacado", true | limit: 8 %}
+      {% for producto in featured_products %}
+        {% include product-card.html producto=producto %}
+      {% endfor %}
+    </div>
+    <div class="view-all">
+      <a href="{{ '/productos' | relative_url }}" class="btn btn-outline">Ver todos los productos</a>
+    </div>
+  </div>
+</section>
+
+<section class="offers-banner">
+  <div class="container">
+    <div class="offers-content">
+      <h2>Ofertas especiales</h2>
+      <p>Aprovecha nuestros descuentos exclusivos en pañales de las mejores marcas</p>
+      <a href="{{ '/ofertas' | relative_url }}" class="btn btn-primary">Ver ofertas</a>
+    </div>
+  </div>
+</section>
+
+<section class="brands">
+  <div class="container">
+    <h2 class="section-title">Nuestras marcas</h2>
+    <div class="brands-slider">
+      <div class="brand">
+        <img src="{{ '/assets/images/brands/pampers.png' | relative_url }}" alt="Pampers">
+      </div>
+      <div class="brand">
+        <img src="{{ '/assets/images/brands/huggies.png' | relative_url }}" alt="Huggies">
+      </div>
+      <div class="brand">
+        <img src="{{ '/assets/images/brands/dodot.png' | relative_url }}" alt="Dodot">
+      </div>
+      <div class="brand">
+        <img src="{{ '/assets/images/brands/tena.png' | relative_url }}" alt="Tena">
+      </div>
+      <div class="brand">
+        <img src="{{ '/assets/images/brands/moltex.png' | relative_url }}" alt="Moltex">
+      </div>
+      <div class="brand">
+        <img src="{{ '/assets/images/brands/babysec.png' | relative_url }}" alt="Babysec">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="testimonial-rating">
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+        </div>
+        <p class="testimonial-text">"Excelente servicio y precios. Los pañales llegaron al día siguiente y la calidad es inmejorable."</p>
+        <div class="testimonial-author">
+          <img src="{{ '/assets/images/testimonials/user1.jpg' | relative_url }}" alt="María García">
+          <div>
+            <h4>María García</h4>
+            <p>Madrid</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial">
+        <div class="testimonial-rating">
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+        </div>
+        <p class="testimonial-text">"Compro regularmente pañales para mi padre y siempre encuentro las mejores ofertas aquí. Muy recomendable."</p>
+        <div class="testimonial-author">
+          <img src="{{ '/assets/images/testimonials/user2.jpg' | relative_url }}" alt="Carlos Rodríguez">
+          <div>
+            <h4>Carlos Rodríguez</h4>
+            <p>Barcelona</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial">
+        <div class="testimonial-rating">
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star">☆</span>
+        </div>
+        <p class="testimonial-text">"Gran variedad de marcas y tallas. El envío es rápido y el servicio al cliente es excelente."</p>
+        <div class="testimonial-author">
+          <img src="{{ '/assets/images/testimonials/user3.jpg' | relative_url }}" alt="Laura Martínez">
+          <div>
+            <h4>Laura Martínez</h4>
+            <p>Valencia</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="container">
+    <div class="newsletter-content">
+      <h2>Suscríbete a nuestro boletín</h2>
+      <p>Recibe las mejores ofertas y novedades directamente en tu correo</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="Tu correo electrónico" required>
+        <button type="submit" class="btn btn-primary">Suscribirse</button>
+      </form>
+    </div>
+  </div>
+</section>
+

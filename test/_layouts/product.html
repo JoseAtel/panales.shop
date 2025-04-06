@@ -1,0 +1,105 @@
+---
+layout: default
+---
+<div class="product-detail">
+  <div class="product-images">
+    <div class="main-image">
+      <img src="{{ page.imagen_principal }}" alt="{{ page.titulo }}">
+    </div>
+    <div class="thumbnail-images">
+      {% for imagen in page.imagenes_adicionales %}
+      <img src="{{ imagen }}" alt="{{ page.titulo }}" class="thumbnail">
+      {% endfor %}
+    </div>
+  </div>
+  
+  <div class="product-info">
+    {% if page.premium %}
+    <span class="badge premium">Premium</span>
+    {% endif %}
+    
+    <h1>{{ page.titulo }}</h1>
+    <div class="rating">
+      {% assign rating = page.rating | default: 0 %}
+      {% for i in (1..5) %}
+        {% if i <= rating %}
+        <span class="star filled">★</span>
+        {% else %}
+        <span class="star">☆</span>
+        {% endif %}
+      {% endfor %}
+      <span class="reviews">({{ page.reviews | default: 0 }} opiniones)</span>
+    </div>
+    
+    <div class="price-container">
+      {% if page.descuento %}
+      <span class="original-price">${{ page.precio_original }}</span>
+      <span class="discount">{{ page.descuento }}% OFF</span>
+      {% endif %}
+      <span class="price">${{ page.precio }}</span>
+      
+      {% if page.cuotas %}
+      <div class="installments">
+        en {{ page.cuotas.cantidad }}x ${{ page.cuotas.valor }} sin interés
+      </div>
+      {% endif %}
+    </div>
+    
+    <div class="shipping">
+      {% if page.envio_gratis %}
+      <span class="free-shipping">Envío gratis</span>
+      {% else %}
+      <span class="shipping-cost">Envío: ${{ page.costo_envio }}</span>
+      {% endif %}
+      
+      {% if page.llega_hoy %}
+      <span class="arrives-today">Llega hoy</span>
+      {% elsif page.llega_manana %}
+      <span class="arrives-tomorrow">Llega mañana</span>
+      {% endif %}
+    </div>
+    
+    <div class="stock">
+      Stock disponible: {{ page.stock }} unidades
+    </div>
+    
+    <div class="quantity-selector">
+      <label for="quantity">Cantidad:</label>
+      <div class="quantity-controls">
+        <button class="quantity-btn minus">-</button>
+        <input type="number" id="quantity" value="1" min="1" max="{{ page.stock }}">
+        <button class="quantity-btn plus">+</button>
+      </div>
+    </div>
+    
+    <div class="actions">
+      <button class="btn-comprar">Comprar ahora</button>
+      <button class="btn-carrito">Agregar al carrito</button>
+    </div>
+    
+    <div class="product-description">
+      <h2>Descripción</h2>
+      {{ content }}
+    </div>
+    
+    <div class="specifications">
+      <h2>Características</h2>
+      <ul>
+        {% for caracteristica in page.caracteristicas %}
+        <li>{{ caracteristica }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="related-products">
+  <h2>Productos relacionados</h2>
+  <div class="products-grid">
+    {% assign related_products = site.productos | where: "categoria", page.categoria | where_exp: "item", "item.url != page.url" | limit: 4 %}
+    {% for producto in related_products %}
+    {% include product-card.html producto=producto %}
+    {% endfor %}
+  </div>
+</div>
+

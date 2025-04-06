@@ -1,0 +1,52 @@
+<div class="product-card">
+  {% if producto.premium %}
+  <span class="badge premium">Premium</span>
+  {% endif %}
+  
+  {% if producto.descuento %}
+  <span class="badge discount">{{ producto.descuento }}% OFF</span>
+  {% endif %}
+  
+  <a href="{{ producto.url | relative_url }}" class="product-link">
+    <div class="product-image">
+      <img src="{{ producto.imagen_principal }}" alt="{{ producto.titulo }}">
+    </div>
+    
+    <div class="product-info">
+      <h3 class="product-title">{{ producto.titulo }}</h3>
+      
+      <div class="product-price">
+        {% if producto.descuento %}
+        <span class="original-price">${{ producto.precio_original }}</span>
+        {% endif %}
+        <span class="price">${{ producto.precio }}</span>
+      </div>
+      
+      {% if producto.cuotas %}
+      <div class="installments">
+        en {{ producto.cuotas.cantidad }}x ${{ producto.cuotas.valor }}
+      </div>
+      {% endif %}
+      
+      {% if producto.envio_gratis %}
+      <span class="free-shipping">Envío gratis</span>
+      {% endif %}
+      
+      <div class="rating">
+        {% assign rating = producto.rating | default: 0 %}
+        {% for i in (1..5) %}
+          {% if i <= rating %}
+          <span class="star filled">★</span>
+          {% else %}
+          <span class="star">☆</span>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </a>
+  
+  <button class="add-to-cart" data-id="{{ producto.id }}" data-title="{{ producto.titulo }}" data-price="{{ producto.precio }}" data-image="{{ producto.imagen_principal }}">
+    Agregar al carrito
+  </button>
+</div>
+

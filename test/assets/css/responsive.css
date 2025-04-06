@@ -1,0 +1,135 @@
+/* Responsive Styles */
+
+/* Tablets y dispositivos medianos */
+@media (max-width: 992px) {
+  .product-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .hero-content p {
+    font-size: var(--font-size-md);
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .testimonials-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+/* Móviles y dispositivos pequeños */
+@media (max-width: 768px) {
+  .header-top .container {
+    flex-wrap: wrap;
+  }
+
+  .logo-container {
+    flex: 0 0 50%;
+  }
+
+  .search-container {
+    order: 3;
+    flex: 0 0 100%;
+    margin-top: var(--spacing-sm);
+  }
+
+  .user-actions {
+    flex: 0 0 auto;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .main-nav.active {
+    display: block;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nav-list a {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .filters-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-group {
+    flex: 0 0 100%;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    width: 100%;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .payment-methods {
+    justify-content: center;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}
+
+/* Dispositivos muy pequeños */
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .user-action span {
+    display: none;
+  }
+
+  .user-action svg {
+    margin-bottom: 0;
+  }
+
+  .section-title {
+    font-size: var(--font-size-xl);
+  }
+
+  .pagination-numbers {
+    display: none;
+  }
+
+  .thumbnail-images {
+    justify-content: center;
+  }
+}
+
