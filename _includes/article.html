@@ -1,0 +1,41 @@
+---
+layout: default
+---
+
+<div class="article-container">
+  <div class="article-sidebar">
+    <h3>{{ page.category }}</h3>
+    <ul class="sidebar-nav">
+      {% assign category_articles = site[page.collection] | sort: 'order' %}
+      {% for article in category_articles %}
+        <li {% if article.url == page.url %}class="active"{% endif %}>
+          <a href="{{ article.url | relative_url }}">{{ article.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  
+  <article class="article-content">
+    <h1>{{ page.title }}</h1>
+    
+    <div class="article-body">
+      {{ content }}
+    </div>
+    
+    {% include ad-unit.html %}
+    
+    <div class="article-footer">
+      <div class="article-meta">
+        <p>Última actualización: {{ page.last_updated | default: site.time | date: "%d/%m/%Y" }}</p>
+      </div>
+      
+      <div class="article-feedback">
+        <p>¿Te resultó útil este artículo?</p>
+        <div class="feedback-buttons">
+          <button class="btn btn-sm btn-outline" id="feedbackYes">Sí</button>
+          <button class="btn btn-sm btn-outline" id="feedbackNo">No</button>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>

@@ -1,6 +1,33 @@
-<!-- _includes/footer.html -->
-<footer>
-    <p>&copy; 2025 Pañales.shop. Todos los derechos reservados.</p>
-</footer>
-</body>
-</html>
+<footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Fonasa Uruguay</h3>
+          <p>El Fondo Nacional de Salud (Fonasa) es un organismo público que financia el Sistema Nacional Integrado de Salud (SNIS).</p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Enlaces rápidos</h3>
+          <ul>
+            <li><a href="{{ '/afiliacion/' | relative_url }}">Afiliación</a></li>
+            <li><a href="{{ '/prestaciones/' | relative_url }}">Prestaciones</a></li>
+            <li><a href="{{ '/tramites/' | relative_url }}">Trámites</a></li>
+            <li><a href="{{ '/preguntas-frecuentes/' | relative_url }}">Preguntas frecuentes</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contacto</h3>
+          <ul>
+            <li>Teléfono:</li>
+            <li>Email:</li>
+            <li>Dirección: Montevideo</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; {{ 'now' | date: "%Y" }} Fonasa Uruguay. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
